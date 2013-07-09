@@ -1,0 +1,31 @@
+<h1>Sign In</h1>
+
+<form action="<%= session_url %>" method="POST" class="form-horizontal">
+  <div class="control-group">
+    <label for="user_username" class="control-label">Username</label>
+    <div class="controls">
+      <input
+        type="text"
+        name="user[username]"
+        value="<%= @user.username %>"
+        id="user_username">
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label for="user_password" class="control-label">Password</label>
+    <div class="controls">
+      <input
+        type="password"
+        name="user[password]"
+        id="user_password">
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">
+      <input type="submit" value="Sign In" class="btn">
+    </div>
+  </div>
+        
+</form>
