@@ -21,6 +21,8 @@ end
 gem 'backbone-on-rails'
 gem 'friendly_id', '~> 4.0'
 gem 'jquery-rails'
+gem 'less-rails'
+gem 'nilify_blanks'
 gem 'pg'
 
 
