@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'less-rails'
 gem 'nilify_blanks'
 gem 'pg'
+gem 'therubyracer'
 
 
 group :development do
