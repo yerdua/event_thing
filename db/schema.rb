@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709054839) do
+ActiveRecord::Schema.define(:version => 20130709204628) do
 
   create_table "artists", :force => true do |t|
     t.string   "name",       :null => false
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(:version => 20130709054839) do
   end
 
   add_index "artists", ["name"], :name => "index_artists_on_name"
+
+  create_table "cities", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "country_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "cities", ["country_id"], :name => "index_cities_on_country_id"
+  add_index "cities", ["name"], :name => "index_cities_on_name"
+
+  create_table "countries", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "countries", ["name"], :name => "index_countries_on_name"
 
   create_table "events", :force => true do |t|
     t.string   "title",       :null => false
@@ -31,6 +49,16 @@ ActiveRecord::Schema.define(:version => 20130709054839) do
 
   add_index "events", ["title"], :name => "index_events_on_title"
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "username",        :null => false
+    t.string   "password_digest", :null => false
+    t.string   "email"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "name",        :null => false
