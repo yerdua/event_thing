@@ -3,8 +3,9 @@ window.Project2 = {
   Collections: {},
   Views: {},
   Routers: {},
+  Store: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    console.log('Hello from Backbone!');
   }
 };
 

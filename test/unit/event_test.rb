@@ -9,6 +9,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  owner_id    :integer
+#  start_time  :datetime         not null
+#  end_time    :datetime         not null
 #
 
 require 'test_helper'

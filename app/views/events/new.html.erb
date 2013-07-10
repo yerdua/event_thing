@@ -1,0 +1,18 @@
+<%= form_for @event, remote: true do |f| %>
+  <%= f.text_field :title %>
+  <div>
+    <%= f.label :start_time %>    
+    <input type="text" class="datepicker" name="event[start_time]" id="event_start_time" data-date-format="yyyy-mm-dd">
+  </div>
+  
+  <div>
+    <%= f.label :end_time %>
+    <input type="text" class="datepicker" name="event[end_time]" id="event_end_time" data-date-format="yyyy-mm-dd">
+  </div>
+  
+  <%= f.submit %>
+<% end %>
+
+<script>
+  $('.datepicker').datepicker();
+</script>

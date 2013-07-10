@@ -23,5 +23,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   
   belongs_to :home_city, class_name: 'City'
+  has_many :events, foreign_key: :owner_id
   
 end
