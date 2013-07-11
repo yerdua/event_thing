@@ -1,7 +1,8 @@
 Project2.Views.EventForm = Backbone.View.extend({
   
   events: {
-    'click input[type="submit"]': "submit"
+    'click input[type="submit"]': "submit",
+    'click button#choose_venue': 'showVenuePicker' 
   },
 
   template: JST['events/form'],
@@ -17,7 +18,24 @@ Project2.Views.EventForm = Backbone.View.extend({
   },
   
   addVenueForm: function () {
+  
+  },
+  
+  showVenuePicker: function (event) {
+    event.preventDefault();
+    console.log('clicky');
+    var that = this;
     
+    Project2.Store.venuesAll.fetch({
+      success: function () {
+        var venuePicker = new Project2.Views.AddVenue({
+          collection: Project2.Store.venuesAll,
+          $hiddenField: that.$el.find("#event_venue_id")
+        });
+        
+        that.$el.append(venuePicker.render().$el);
+      }
+    });
   },
   
   submit: function (event) {

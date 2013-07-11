@@ -1,3 +1,5 @@
+<h1>Create an Event</h1>
+
 <form class="form-horizontal">
   <div class="control-group">
     <label for="event_title" class="control-label">Title</label>
@@ -12,27 +14,42 @@
     
   <div class="control-group">
     <label for="event_start_time" class="control-label">Start Time</label>
-    <div class="controls">
+    <div class="controls date">
       <input
         type="text"
         class="datepicker"
         name="event[start_time]"
         id="event_start_time"
-        data-date-format="yyyy-mm-dd"
         value="<%= event.escape('start_time') %>">
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
     </div>
   </div>
   
   <div class="control-group">
     <label for="event_end_time" class="control-label">End Time</label>
-    <div class="controls">
+    <div class="controls date">
       <input
         type="text"
-        class="datepicker"
         name="event[end_time]"
         id="event_end_time"
-        data-date-format="yyyy-mm-dd"
         value="<%= event.escape('end_time') %>">
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
+    </div>
+  </div>
+  
+  <input
+    type="hidden"
+    name="event[venue_id]"
+    id="event_venue_id"
+    value="<%= event.escape('venue_id') %>">
+  
+  <div class="control-group">
+    <div class="controls">
+      <button class="btn" id="choose_venue">Choose Venue</button>
     </div>
   </div>
   
@@ -44,5 +61,8 @@
 </form>
 
 <script>
-  $('.datepicker').datepicker();
+  $('.date').datetimepicker({
+    format: 'yyyy-MM-dd hh:mm',
+    pickSeconds: false
+  });
 </script>

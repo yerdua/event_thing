@@ -1,5 +1,7 @@
 <ul>
   <% venues.each(function (venue) { %>
-    <li><%= venue.escape('name') %></li>
+    <li data-id="<%= venue.escape('id') %>">
+      <%= venue.escape('name') %>
+    </li>
   <% }) %>
 </ul>
