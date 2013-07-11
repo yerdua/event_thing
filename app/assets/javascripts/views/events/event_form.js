@@ -16,6 +16,10 @@ Project2.Views.EventForm = Backbone.View.extend({
     return this;
   },
   
+  addVenueForm: function () {
+    
+  },
+  
   submit: function (event) {
     event.preventDefault();
 

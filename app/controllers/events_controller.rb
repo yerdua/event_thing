@@ -15,6 +15,9 @@ class EventsController < ApplicationController
     if params[:user_id]
       @user = User.includes(:events).find(params[:user_id])
       @events = @user.events
+    elsif params[:venue_id]
+      @venue = Venue.includes(:events).find(params[:venue_id])
+      @events = @venue.events
     else
       @events = Event.all;
     end

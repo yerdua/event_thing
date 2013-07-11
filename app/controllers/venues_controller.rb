@@ -17,6 +17,11 @@ class VenuesController < ApplicationController
     end
   end
   
+  def show
+    @venue = Venue.find(params[:id])
+    render json: @venue
+  end
+  
   def update
     @venue = Venue.find(params[:id])
     @venue.update_attributes(params[:venue])

@@ -1,6 +1,6 @@
 Project2::Application.routes.draw do
   scope 'api', defaults: { format: :json } do
-    resources :users, only: [:index, :show] do
+    resources :users, only: [:index, :show, :update] do
       resources :events, only: [:index]
     end
     resources :events
