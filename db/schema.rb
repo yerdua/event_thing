@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711012119) do
+ActiveRecord::Schema.define(:version => 20130711043407) do
 
   create_table "artists", :force => true do |t|
     t.string   "name",       :null => false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130711012119) do
     t.integer  "owner_id"
     t.datetime "start_time",  :null => false
     t.datetime "end_time",    :null => false
+    t.string   "url"
   end
 
   add_index "events", ["owner_id"], :name => "index_events_on_owner_id"
@@ -59,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20130711012119) do
     t.string   "address"
     t.string   "city"
     t.string   "country"
+    t.string   "state_code"
+    t.string   "url"
   end
 
   add_index "venues", ["name"], :name => "index_venues_on_name"

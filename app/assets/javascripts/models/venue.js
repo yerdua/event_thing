@@ -6,5 +6,5 @@ Project2.Models.Venue = Backbone.RelationalModel.extend({
     collectionType: 'Project2.Collections.Events'
   }],
   
-  urlRoot: '/venue/'
+  urlRoot: '/api/venues'
 });

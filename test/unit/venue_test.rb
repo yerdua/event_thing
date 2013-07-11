@@ -12,6 +12,8 @@
 #  address     :string(255)
 #  city        :string(255)
 #  country     :string(255)
+#  state_code  :string(255)
+#  url         :string(255)
 #
 
 require 'test_helper'

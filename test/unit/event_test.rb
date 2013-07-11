@@ -11,6 +11,7 @@
 #  owner_id    :integer
 #  start_time  :datetime         not null
 #  end_time    :datetime         not null
+#  url         :string(255)
 #
 
 require 'test_helper'

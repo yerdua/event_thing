@@ -8,8 +8,7 @@ Project2.Views.EventForm = Backbone.View.extend({
   
   render: function () {
     var renderedContent = this.template({
-      events: this.collection,
-      event: this.model
+      event: this.model,
     });
     
     this.$el.html(renderedContent);

@@ -11,11 +11,12 @@
 #  owner_id    :integer
 #  start_time  :datetime         not null
 #  end_time    :datetime         not null
+#  url         :string(255)
 #
 
 class Event < ActiveRecord::Base
   attr_accessible :title, :description, :venue_id, :owner_id,
-                  :start_time, :end_time
+                  :start_time, :end_time, :url
   validates :title, :start_time, :end_time, presence: true
   validate :start_time_is_before_end_time
   
