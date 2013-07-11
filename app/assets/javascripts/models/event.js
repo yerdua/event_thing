@@ -5,8 +5,8 @@ Project2.Models.Event = Backbone.RelationalModel.extend({
     relatedModel: 'Project2.Models.User'
   },{
     type: 'HasOne',
-    key: 'venue'
-    
+    key: 'venue',
+    relatedModel: 'Project2.Models.Venue'
   }],
   
   // url: function () {
