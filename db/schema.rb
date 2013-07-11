@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709233652) do
+ActiveRecord::Schema.define(:version => 20130711012119) do
 
   create_table "artists", :force => true do |t|
     t.string   "name",       :null => false
@@ -20,24 +20,6 @@ ActiveRecord::Schema.define(:version => 20130709233652) do
   end
 
   add_index "artists", ["name"], :name => "index_artists_on_name"
-
-  create_table "cities", :force => true do |t|
-    t.string   "name",       :null => false
-    t.integer  "country_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "cities", ["country_id"], :name => "index_cities_on_country_id"
-  add_index "cities", ["name"], :name => "index_cities_on_name"
-
-  create_table "countries", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "countries", ["name"], :name => "index_countries_on_name"
 
   create_table "events", :force => true do |t|
     t.string   "title",       :null => false
@@ -61,11 +43,9 @@ ActiveRecord::Schema.define(:version => 20130709233652) do
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.integer  "home_city_id"
     t.string   "session_token"
   end
 
-  add_index "users", ["home_city_id"], :name => "index_users_on_home_city_id"
   add_index "users", ["session_token"], :name => "index_users_on_session_token"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
@@ -74,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20130709233652) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
   end
 
   add_index "venues", ["name"], :name => "index_venues_on_name"

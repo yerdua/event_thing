@@ -7,8 +7,27 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  latitude    :float
+#  longitude   :float
+#  address     :string(255)
+#  city        :string(255)
+#  country     :string(255)
 #
 
 class Venue < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessor :full_address
+  geocoded_by :full_address
+  after_validation :geocode, :reverse_geocode
+  attr_accessible :name, :description, :full_address
+    
+  reverse_geocoded_by :latitude, :longitude do |obj, results|
+    if geo = results.first
+      obj.address = geo.address
+      obj.city = geo.city
+      obj.country = geo.country
+    end
+  end
+  
+  has_many :events
+  
 end

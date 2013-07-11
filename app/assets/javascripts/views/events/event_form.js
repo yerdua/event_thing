@@ -21,14 +21,13 @@ Project2.Views.EventForm = Backbone.View.extend({
     event.preventDefault();
 
     var attrs = $(event.target.form).serializeJSON();
-    var options = {
+    this.model.save(attrs, {
       success: function () {
         Backbone.history.navigate("#/", { trigger: true });
+      },
+      error: function (model, response) {
+        console.log(response.responseJSON);
       }
-    }
-    
-    this.model.set(attrs);
-    this.collection.create(this.model, options);
+    });
   }
-
 });

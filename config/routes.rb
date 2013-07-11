@@ -4,6 +4,10 @@ Project2::Application.routes.draw do
       resources :events, only: [:index]
     end
     resources :events
+    
+    resources :venues do
+      resources :events, only: [:index]
+    end
   end
   
   root to: "root#root"

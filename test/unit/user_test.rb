@@ -8,7 +8,6 @@
 #  email           :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  home_city_id    :integer
 #  session_token   :string(255)
 #
 

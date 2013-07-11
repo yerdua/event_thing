@@ -18,21 +18,35 @@
         class="datepicker"
         name="event[start_time]"
         id="event_start_time"
-        data-date-format="yyyy-mm-dd">
+        data-date-format="yyyy-mm-dd"
+        value="<%= event.escape('start_time') %>">
     </div>
   </div>
   
   <div class="control-group">
-    <label for="event_end_time" class="control-label">Start Time</label>
+    <label for="event_end_time" class="control-label">End Time</label>
     <div class="controls">
       <input
         type="text"
         class="datepicker"
         name="event[end_time]"
         id="event_end_time"
-        data-date-format="yyyy-mm-dd">
+        data-date-format="yyyy-mm-dd"
+        value="<%= event.escape('end_time') %>">
     </div>
   </div>
+  
+  <div class="control-group">
+    <label for="event_venue_id" class="control-label">Venue</label>
+    <div class="controls">
+      <input
+        type="text"
+        class="typeahead"
+        id="event_venue_id"
+        name="event[venue_id]"
+        value="<%= event.venue_id %>">
+    </div>
+  </div>  
   
   <div class="control-group">
     <div class="controls">

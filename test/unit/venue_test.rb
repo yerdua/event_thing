@@ -7,6 +7,11 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  latitude    :float
+#  longitude   :float
+#  address     :string(255)
+#  city        :string(255)
+#  country     :string(255)
 #
 
 require 'test_helper'

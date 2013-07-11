@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   
   def start_time_is_before_end_time
-    if self.start_time > self.end_time
+    if self.start_time && self.end_time && self.start_time > self.end_time
       errors.add(:start_time, "can't be after end time")
     end
   end
