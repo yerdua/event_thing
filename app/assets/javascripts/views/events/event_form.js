@@ -17,10 +17,6 @@ Project2.Views.EventForm = Backbone.View.extend({
     return this;
   },
   
-  addVenueForm: function () {
-  
-  },
-  
   showVenuePicker: function (event) {
     event.preventDefault();
     console.log('clicky');

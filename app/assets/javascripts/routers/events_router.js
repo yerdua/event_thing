@@ -2,8 +2,8 @@ Project2.Routers.Events = Backbone.Router.extend({
   routes: {
     "": "index",
     "new" : "new",
-    "add_venue" : "addVenue",
     ":id" : "show",
+    ":id/edit" : "edit",
   },
   
   initialize: function (options) {
@@ -12,16 +12,15 @@ Project2.Routers.Events = Backbone.Router.extend({
     this.collection = options.collection;
   },
   
-  addVenue: function () {
+  edit: function (id) {
     var that = this;
-    Project2.Store.venuesAll.fetch({
-      success: function (venues) {
-        var addVenue = new Project2.Views.EventAddVenue({
-          collection: Project2.Store.venuesAll
-        });
-        
-        that.$popup.html(addVenue.render().$el);
-      }
+    
+    this._withEvent(id, function (event){
+      var formView = new Project2.Views.EventForm({
+        model: event
+      });
+      
+      that.$rootEl.html(formView.render().$el);
     });
   },
   
@@ -52,20 +51,20 @@ Project2.Routers.Events = Backbone.Router.extend({
     var that = this;
     
     that._withEvent(id, function (event) {
-      that.$rootEl.html(event.get('title'))
+      var detailView = new Project2.Views.EventDetail({
+        model: event
+      });
+      
+      that.$rootEl.html(detailView.render().$el);
     });
   },
   
   _withEvent: function (id, callback) {
-    var event = this.collection.get(id);
+    var event = Project2.Models.Event.findOrCreate({id: id});
     
-    if (event) {
+    if (event.get('title')) {
       callback(event);
     } else {
-      event = new Project2.Models.Event({
-        id: id
-      });
-      
       event.fetch({
         success: callback
       });

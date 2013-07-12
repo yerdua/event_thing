@@ -1,0 +1,19 @@
+<h1><%= event.escape('title') %></h1>
+
+<a href="#/<%= event.escape('id') %>/edit">edit</a>
+
+<div>
+  <h3>Description</h3>
+  <p><%= event.escape('description') %></p>
+</div>
+
+<div>
+  <h3>When</h3>
+  <p>Starts at: <%= event.escape('start_time') %></p>
+  <p>Ends at: <%= event.escape('end_time') %></p>
+</div>
+
+<div>
+  <h3>Where</h3>
+  <p>venue id: <%= event.escape('venue_id') %></p>
+</div>
