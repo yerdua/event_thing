@@ -1,0 +1,18 @@
+<div id="content">
+</div>
+
+<div id="popup"></div>
+
+<script>
+  $(document).ready(function(){   
+    Project2.Store.venues = new Project2.Collections.Venues;
+    
+    new Project2.Routers.Venues({
+      $rootEl: $("#content"),
+      $popup: $("#popup"),
+      collection: Project2.Store.venues
+    });    
+    
+    Backbone.history.start();
+  });
+</script>

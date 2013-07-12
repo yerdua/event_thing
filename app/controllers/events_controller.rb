@@ -13,13 +13,13 @@ class EventsController < ApplicationController
   
   def index
     if params[:user_id]
-      @user = User.includes(:events).find(params[:user_id])
+      @user = User.includes(events: [:venue, :tags]).find(params[:user_id])
       @events = @user.events
     elsif params[:venue_id]
-      @venue = Venue.includes(:events).find(params[:venue_id])
+      @venue = Venue.includes(events: [:owner, :tags]).find(params[:venue_id])
       @events = @venue.events
     else
-      @events = Event.all;
+      @events = Event.includes(:tags, :venue, :owner).all;
     end
     
     respond_to do |format|
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   end
   
   def show
-    @event = Event.find(params[:id])
+    @event = Event.includes(:venue).find(params[:id])
     render json: @event
   end
   

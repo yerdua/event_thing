@@ -43,6 +43,17 @@
     </div>
   </div>
   
+  <div class="control-group">
+    <label for="event_tag_names" class="control-label">Add Tags</label>
+    <div class="controls">
+      <input
+        type="text"
+        name="event[tag_names]"
+        id="event_tag_names">
+      <span class="help-inline">enter multiple tags separated by commas</span>
+    </div>
+  </div>
+  
   <input
     type="hidden"
     name="event[venue_id]"
@@ -57,10 +68,12 @@
   
   <div class="control-group">
     <div class="controls">
-      <input type="submit" class="btn">
+      <input type="submit" class="btn" id="event_submit">
     </div>
   </div>
 </form>
+
+<div id="venue_picker"></div>
 
 <script>
   $('.date').datetimepicker({

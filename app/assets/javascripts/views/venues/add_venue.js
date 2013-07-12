@@ -1,6 +1,6 @@
 Project2.Views.AddVenue = Backbone.View.extend({
   events: {
-    'click li' : 'addVenue'
+    'click li' : 'addVenue',
   },
   
   initialize: function(options){
@@ -25,6 +25,6 @@ Project2.Views.AddVenue = Backbone.View.extend({
     
     this.$el.find('li').removeClass('selected');
     $(event.currentTarget).toggleClass('selected');
-  }
+  },
   
 });

@@ -1,7 +1,15 @@
 <ul>
   <% events.each(function(event){ %>
     <li>
-      <a href="/events/#/<%= event.escape('id') %>"><%= event.get('title') %>
+      <a 
+        href="/events/#/<%= event.escape('id') %>">
+        <%= event.get('title') %>
+      </a>
+      
+      <p class="muted">
+        starts: <%= Date(event.get('start_time')).toString() %>,
+        ends: <%= Date(event.get('end_time')).toString() %>
+      </p>
     </li>
   <% })%>
 </ul>

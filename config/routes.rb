@@ -4,6 +4,7 @@ Project2::Application.routes.draw do
       resources :events, only: [:index]
     end
     resources :events
+    resources :tags, only: [:create, :destroy, :index]
     
     resources :venues do
       resources :events, only: [:index]
@@ -16,5 +17,8 @@ Project2::Application.routes.draw do
   resources :users do
     resources :events, only: [:index]
   end
-  resources :events
+  resources :events, only: [:index]
+  resources :venues do
+    resources :events, only: [:index]
+  end
 end

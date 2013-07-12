@@ -32,5 +32,6 @@ class VenuesController < ApplicationController
       render json: @venue.errors.full_messages, status: 422
     end
   end
+  
     
 end

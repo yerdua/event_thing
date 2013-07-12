@@ -4,26 +4,22 @@
 <div id="popup"></div>
 
 <script>
-  $(document).ready(function(){   
-    Project2.Store.venuesAll = new Project2.Collections.Venues;
-     
+  $(document).ready(function(){        
     <% if @user %>
       Project2.Store.events = new Project2.Collections.Events;
       Project2.Store.events.url = "/api/users/<%= @user.id %>/events";
-      new Project2.Routers.Events({
-        $rootEl: $("#content"),
-        $popup: $("#popup"),
-        collection: Project2.Store.events
-      });
+    <% elsif @venue %>
+      Project2.Store.events = new Project2.Collections.Events
+      Project2.Store.events.url = "/api/venues/<%= @venue.id %>/events";
     <% else %>
       Project2.Store.events = new Project2.Collections.Events;
-      
-      new Project2.Routers.Events({
-        $rootEl: $("#content"),
-        $popup: $("#popup"),
-        collection: Project2.Store.events
-      });
     <% end %>
+    
+    new Project2.Routers.Events({
+      $rootEl: $("#content"),
+      $popup: $("#popup"),
+      collection: Project2.Store.events
+    });
     
     Backbone.history.start();
   });
